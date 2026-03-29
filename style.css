@@ -1,0 +1,171 @@
+/* RESET STYLES - This removes default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY STYLES with CSS Variables for easy theme switching */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    /* CSS Variables - these change in dark mode */
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --card-bg: white;
+    --footer-bg: #333;
+    --footer-text: white;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* DARK MODE CLASS - Applied when button is clicked */
+body.dark-mode {
+    --bg-color: #1a1a2e;
+    --text-color: #eee;
+    --card-bg: #16213e;
+    --footer-bg: #0f0f1a;
+    --footer-text: #ccc;
+}
+
+/* HEADER STYLES */
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* BUTTON STYLES */
+.controls button {
+    padding: 0.7rem 1.5rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    background-color: #007bff;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE GALLERY GRID - THIS MAKES IT RESPONSIVE! */
+.gallery {
+    display: grid;
+    /* AUTO-FILL creates responsive columns */
+    /* MINMAX ensures each column is at least 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem 1rem;
+}
+
+/* INDIVIDUAL GALLERY CARD */
+.gallery-item {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT - This is the requirement! */
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* IMAGE STYLES */
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* IMAGE ZOOM ON HOVER */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* CAPTION STYLES */
+.gallery-item .caption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* FAVORITE BADGE */
+.favorite-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+}
+
+/* FOOTER STYLES */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+/* RESPONSIVE DESIGN - Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .controls button {
+        padding: 0.5rem 1rem;
+        margin: 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    header {
+        padding: 1rem;
+    }
+}
